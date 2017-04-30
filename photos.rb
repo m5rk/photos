@@ -6,14 +6,14 @@ require 'mini_magick'
 require 'rickshaw'
 
 FOLDERS = [
-  '.',
+  '/Volumes/NIKON D3000'
 ]
 
 EXTENSIONS = %r{\A(\.jpg|\.nef)\z}i
 
 PROCESSED_FILENAME = File.expand_path('./processed.txt', __dir__)
 
-TARGET_FOLDER = File.expand_path('~/processed_photos')
+TARGET_FOLDER = File.expand_path('~/Desktop/processed_photos')
 
 class Photo
   attr_accessor \
@@ -26,7 +26,7 @@ class Photo
 
   def self.all
     FOLDERS.map do |folder|
-      Dir.glob(File.join(folder, '**/*'))
+      Dir.glob(File.join(File.expand_path(folder), '**/*'))
     end.flatten.select do |filename|
       photo?(filename)
     end.map do |filename|
@@ -73,6 +73,8 @@ class Photo
   end
 
   def process
+    puts "Processing: #{filename}"
+
     convert_or_copy
 
     record_in_processed
