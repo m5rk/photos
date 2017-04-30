@@ -1,0 +1,24 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    chronic (0.10.2)
+    exiftool (1.1.0)
+      json
+    json (2.0.3)
+    mini_magick (4.5.1)
+    rickshaw (0.4.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  chronic
+  exiftool
+  mini_magick
+  rickshaw
+
+RUBY VERSION
+   ruby 2.3.1p112
+
+BUNDLED WITH
+   1.14.6
